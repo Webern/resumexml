@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="resume" elementFormDefault="qualified" xmlns="resume"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="resumexml">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="resume"/>
+                <xs:element ref="adaptations"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="adaptations"/>
+    <xs:element name="resume"/>
+</xs:schema>
