@@ -11,5 +11,38 @@
         </xs:complexType>
     </xs:element>
     <xs:element name="adaptations"/>
-    <xs:element name="resume"/>
+    <xs:element name="resume">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="person">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name"/>
+                            <xs:element name="email"/>
+                            <xs:element name="phone"/>
+                            <xs:element name="address">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="3" minOccurs="1" name="address-line"/>
+                                        <xs:element name="city"/>
+                                        <xs:element name="state"/>
+                                        <xs:element name="postal-code"/>
+                                        <xs:element name="country"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="intro">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="intro-heading"/>
+                            <xs:element name="intro-body"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>
