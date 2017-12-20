@@ -42,6 +42,13 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
+                <xs:element name="work-history"/>
+                <xs:element name="education"/>
+                <xs:element name="skills"/>
+                <xs:element name="certifications"/>
+                <xs:element name="insterests"/>
+                <xs:element name="volunteerism"/>
+                <xs:element name="other-sections"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
