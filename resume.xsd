@@ -64,10 +64,18 @@
     <xs:element name="position">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="position-id">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:ID">
+                            <xs:pattern value="[A-Z0-9]+"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
                 <xs:element name="company" type="xs:string"/>
                 <xs:element name="title" type="xs:string"/>
                 <xs:element ref="time"/>
                 <xs:element name="location" type="xs:string"/>
+                <xs:element ref="job-description"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -93,6 +101,50 @@
             <xs:choice>
                 <xs:element ref="ongoing"/>
                 <xs:element ref="ended"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="prose">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="pp" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="list">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="list-item" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="job-description">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="prose-only">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="prose"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:choice>
+                    <xs:element name="list-only">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="list"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="prose-followed-by-list">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="prose"/>
+                                <xs:element ref="list"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:choice>
             </xs:choice>
         </xs:complexType>
     </xs:element>
